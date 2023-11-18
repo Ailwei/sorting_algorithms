@@ -18,7 +18,7 @@ void shell_sort(int *array, size_t size)
 		space = space * 3 + 1;
 	while (space > 0)
 	{
-		printf("Space: %lu\n", (unsigned long)space);
+		/*printf("%lu\n", (unsigned long)space);*/
 		for (i = space; i < size; i++)
 		{
 			temp = array[i];
