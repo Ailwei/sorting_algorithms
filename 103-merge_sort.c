@@ -6,26 +6,25 @@
  * @subarray: A subarray of an array of integers to sort.
  * @buffer: A buffer to store the sorted subarray.
  * @first: The front index of the array.
- * @mid: The middle index of the array.
+ * @middle: The middle index of the array.
  * @last: The back index of the array.
  */
-void merge_subarray(int *subarray, int *buffer, size_t first, size_t mid,
-		size_t last)
+void merge_subarray(int *subarray, int *buffer, size_t first, size_t middle, size_t last)
 {
-	size_t i, j, k = 0;
+	size_t i, x, k = 0;
 
 	printf("Merging...\n[left]: ");
-	print_array(subarray + first, mid - first);
+	print_array(subarray + first, middle - first);
 
 	printf("[right]: ");
-	print_array(subarray + mid, last - mid);
+	print_array(subarray + middle, last - middle);
 
-	for (i = first, j = mid; i < mid && j < last; k++)
-		buffer[k] = (subarray[i] < subarray[j]) ? subarray[i++] : subarray[j++];
-	for (; i < mid; i++)
+	for (i = first, x = middle; i < middle && x < last; k++)
+		buffer[k] = (subarray[i] < subarray[x]) ? subarray[i++] : subarray[x++];
+	for (; i < middle; i++)
 		buffer[k++] = subarray[i];
-	for (; j < last; j++)
-		buffer[k++] = subarray[j];
+	for (; x < last; x++)
+		buffer[k++] = subarray[x];
 	for (i = first, k = 0; i < last; i++)
 		subarray[i] = buffer[k++];
 
