@@ -42,12 +42,12 @@ void sift_down(int *array, size_t size, size_t root, size_t end)
  */
 void heapify(int *array, size_t size)
 {
-	ssize_t start = (size - 2) / 2;
+	ssize_t begin = (size - 2) / 2;
 
-	while (start >= 0)
+	while (begin >= 0)
 	{
-		sift_down(array, size, start, size - 1);
-		start--;
+		sift_down(array, size, begin, size - 1);
+		begin--;
 	}
 }
 
@@ -58,24 +58,24 @@ void heapify(int *array, size_t size)
  */
 void heap_sort(int *array, size_t size)
 {
-	size_t end;
+	size_t finish;
 
 	if (array == NULL || size < 2)
 		return;
 
 	heapify(array, size);
 
-	end = size - 1;
-	while (end > 0)
+	finish = size - 1;
+	while (finish > 0)
 	{
-		int swap = array[end];
-		array[end] = array[0];
+		int swap = array[finish];
+		array[finish] = array[0];
 		array[0] = swap;
 
 		print_array(array, size);
-		end--;
+		finish--;
 
-		sift_down(array, size, 0, end);
+		sift_down(array, size, 0, finish);
 	}
 }
 
