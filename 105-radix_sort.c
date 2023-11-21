@@ -64,7 +64,7 @@ void perform_radix_counting_sort(int *arr, size_t size, int sig, int *temp_buffe
  */
 void radix_sort(int *array, size_t size)
 {
-	int max_value, sig_digit, *temp_buffer;
+	int max_value, sig_digitz, *temp_buffer;
 
 	if (array == NULL || size < 2)
 		return;
@@ -74,9 +74,9 @@ void radix_sort(int *array, size_t size)
 		return;
 
 	max_value = find_maximum(array, size);
-	for (sig_digit = 1; max_value / sig_digit > 0; sig_digit *= 10)
+	for (sig_digitz = 1; max_value / sig_digitz > 0; sig_digitz *= 10)
 	{
-		perform_radix_counting_sort(array, size, sig_digit, temp_buffer);
+		perform_radix_counting_sort(array, size, sig_digitz, temp_buffer);
 		print_array(array, size);
 	}
 
