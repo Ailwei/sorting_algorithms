@@ -39,23 +39,23 @@ void exchange(int *arr, size_t i, size_t j)
  */
 void bitonic_merge(int *arr, size_t low, size_t size, int direction)
 {
-	size_t i;
+	size_t y;
     if (size > 1)
     {
-        size_t mid = size / 2;
+        size_t middle = size / 2;
         print_merge("Merging", arr, low, size, direction);
 
-        for (i = low; i < low + mid; ++i)
+        for (y = low; y < low + middle; ++y)
         {
-            if ((arr[i] > arr[i + mid] && direction == 1) || (arr[i] < arr[i + mid] && direction == 0))
+            if ((arr[y] > arr[y + middle] && direction == 1) || (arr[y] < arr[y + middle] && direction == 0))
             {
                 
-                exchange(arr, i, i + mid);
+                exchange(arr, y, y + middle);
             }
         }
 
-        bitonic_merge(arr, low, mid, direction);
-        bitonic_merge(arr, low + mid, mid, direction);
+        bitonic_merge(arr, low, middle, direction);
+        bitonic_merge(arr, low + middle, middle, direction);
     }
 }
 
@@ -66,20 +66,20 @@ void bitonic_merge(int *arr, size_t low, size_t size, int direction)
  * @size: Size of the array or subarray
  * @direction: Direction of sorting (1 for ascending, 0 for descending)
  */
-void bitonic_sort_recursive(int *arr, size_t low, size_t size, int direction)
+void bitonic_sort_recursive(int *arr, size_t lower, size_t size, int direction)
 {
     if (size > 1)
     {
-        size_t mid = size / 2;
+        size_t middle = size / 2;
 
         
-        bitonic_sort_recursive(arr, low, mid, 1);
+        bitonic_sort_recursive(arr, lower, middle, 1);
 
         
-        bitonic_sort_recursive(arr, low + mid, mid, 0);
+        bitonic_sort_recursive(arr, lower + middle, middle, 0);
 
         
-        bitonic_merge(arr, low, size, direction);
+        bitonic_merge(arr, lower, size, direction);
     }
 }
 
