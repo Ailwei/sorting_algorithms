@@ -3,6 +3,15 @@
 #include <string.h>
 #include "deck.h"
 
+/**
+ * compare_cards - Helper function to compare two cards for sorting
+ * @a: Pointer to the first card
+ * @b: Pointer to the second card
+ *
+ * Return: Integer less than, equal to, or greater than zero if a is found,
+ * respectively, to be less than, to match, or be greater than b.
+ */
+
 static int compare_cards(const void *a, const void *b)
 {
     const deck_node_t *node_a = *(const deck_node_t **)a;
@@ -15,6 +24,10 @@ static int compare_cards(const void *a, const void *b)
 
     return value_cmp;
 }
+/**
+ * sort_deck - Sorts a deck of cards in ascending order
+ * @deck: Pointer to the head of the deck
+ */
 
 void sort_deck(deck_node_t **deck)
 {
