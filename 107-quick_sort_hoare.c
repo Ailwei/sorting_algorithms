@@ -23,24 +23,24 @@ void swap(int *a, int *b)
 int hoare_partition(int *array, int low, int high, size_t size)
 {
 	int pivot = array[high];
-	int i = low - 1, j = high + 1;
+	int x = low - 1, z = high + 1;
 	size_t k;
 
 	while (1)
 	{
 		do {
-			i++;
-		} while (array[i] < pivot);
+			x++;
+		} while (array[x] < pivot);
 
 		do {
-			j--;
-		} while (array[j] > pivot);
+			z--;
+		} while (array[z] > pivot);
 
-		if (i >= j)
-			return j;
+		if (x >= z)
+			return z;
 
 		
-		swap(&array[i], &array[j]);
+		swap(&array[x], &array[z]);
 		printf("Swap: ");
 		for (k = 0; k < size; k++)
 		{
@@ -59,15 +59,15 @@ int hoare_partition(int *array, int low, int high, size_t size)
  * @high: Ending index of the array
  * @size: Size of the array
  */
-void quick_sort2(int *array, int low, int high, size_t size)
+void quick_sort2(int *array, int lower, int higher, size_t size)
 {
-    if (low < high)
+    if (lower < higher)
     {
-        int partition_index = hoare_partition(array, low, high, size);
+        int partition_index = hoare_partition(array, lower, higher, size);
 
         
-        quick_sort2(array, low, partition_index, size);
-        quick_sort2(array, partition_index + 1, high, size);
+        quick_sort2(array, lower, partition_index, size);
+        quick_sort2(array, partition_index + 1, higher, size);
     }
 }
 
