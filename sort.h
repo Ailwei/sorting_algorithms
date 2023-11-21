@@ -45,6 +45,8 @@ void radix_sort(int array[], size_t size);
 void bitonic_sort(int *arr, size_t size);
 void bitonic_merge(int *array, size_t low, size_t size, int position);
 void bitonic_sort_recursive(int *arr, size_t low, size_t size, int direction);
-
+void quick_sort_hoare(int *array, size_t size);
+int hoare_partition(int *array, int low, int high, size_t size);
+void quick_sort2(int *array, int low, int high, size_t size);
 
 #endif
