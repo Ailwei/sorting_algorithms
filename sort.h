@@ -41,6 +41,7 @@ void merge_subarray(int *subarray, int *buffer, size_t front, size_t mid,
 void merge_sort_recursive(int *subarray, int *buffer, size_t front, size_t back);
 void merge_sort(int *array, size_t size);
 void heap_sort(int *array, size_t size);
+void radix_sort(int array[], size_t size);
 
 
 #endif
