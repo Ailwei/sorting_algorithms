@@ -42,6 +42,9 @@ void merge_sort_recursive(int *subarray, int *buffer, size_t front, size_t back)
 void merge_sort(int *array, size_t size);
 void heap_sort(int *array, size_t size);
 void radix_sort(int array[], size_t size);
+void bitonic_sort(int *arr, size_t size);
+void bitonic_merge(int *array, size_t low, size_t size, int position);
+void bitonic_sort_recursive(int *arr, size_t low, size_t size, int direction);
 
 
 #endif
